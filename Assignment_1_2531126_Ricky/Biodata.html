@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="en">
 
@@ -95,17 +96,18 @@
     <section class="section">
         <h2>Education</h2>
         <ul>
-            <!-- <li><strong>Bachelor of Science in Computer Science</strong>, Batam International University (2018 - 2022)</li> -->
-            <li><strong>High School Diploma</strong>, SMK Negeri 1 Tanjungpinang (2022 - 2025)</li>
+        -->
+<!-- <li><strong>Bachelor of Science in Computer Science</strong>, Batam International University (2018 - 2022)</li> -->
+<!--<li><strong>High School Diploma</strong>, SMK Negeri 1 Tanjungpinang (2022 - 2025)</li>
         </ul>
     </section>
 
     <section class="section">
         <h2>Skills</h2>
         <ul>
-            <li>HTML, CSS, JavaScript</li>
-            <!-- <li>Python, Java</li> -->
-            <li>Python</li>
+            <li>HTML, CSS, JavaScript</li> -->
+<!-- <li>Python, Java</li> -->
+<!--<li>Python</li>
             <li>Database Management (MySQL, MongoDB)</li>
             <li>Problem Solving and Critical Thinking</li>
         </ul>
@@ -167,6 +169,209 @@
             </tbody>
         </table>
     </section>
+</body>
+
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Saya</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Reset Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        /* Navbar & Header */
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #2c3e50;
+            color: white;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-left: 1rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin-left: auto;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            /* Mulai dengan tertutup */
+            position: fixed;
+            z-index: 999;
+            top: 60px;
+            /* Di bawah navbar */
+            left: 0;
+            background-color: #ffffff;
+            overflow-x: hidden;
+            transition: 0.3s;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar-content {
+            padding: 20px;
+            width: 250px;
+        }
+
+        /* Tombol Toggle */
+        .toggle-btn {
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+            padding: 20px;
+            transition: margin-left 0.3s;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        /* Styling Profile di Sidebar */
+        .profile-section {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            /* Membuat gambar jadi bulat */
+            object-fit: cover;
+            border: 3px solid #2c3e50;
+            margin-bottom: 15px;
+            background-color: #ddd;
+        }
+
+        .profile-section h3 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .profile-section span {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+            display: block;
+        }
+
+        .separator {
+            border: 0;
+            border-top: 1px solid #eee;
+            margin: 20px 0;
+        }
+
+        .bio-details p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #34495e;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+            <div class="logo">MyPortfolio</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-content">
+            <div class="profile-section">
+                <img src="https://via.placeholder.com/120" alt="Profile Picture" class="profile-img">
+                <h3>Nama Anda</h3>
+                <span>Aspiring Developer</span>
+            </div>
+
+            <hr class="separator">
+
+            <div class="bio-details">
+                <p><strong>Fokus:</strong> Software Engineering</p>
+                <p><strong>Lokasi:</strong> Indonesia</p>
+                <p><strong>Tech Stack:</strong><br> TypeScript, Node.js, CSS</p>
+            </div>
+        </div>
+    </aside>
+
+    <main id="main-content">
+        <section class="hero">
+            <h1>Selamat Datang di Portfolio Saya</h1>
+            <p>Seorang pengembang yang berfokus pada solusi teknologi modern.</p>
+        </section>
+    </main>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            const mainContent = document.getElementById("main-content");
+            const isOpen = sidebar.style.width === "250px";
+
+            if (isOpen) {
+                sidebar.style.width = "0";
+                mainContent.style.marginLeft = "0";
+            } else {
+                sidebar.style.width = "250px";
+                mainContent.style.marginLeft = "250px";
+            }
+        }
+    </script>
 </body>
 
 </html>
