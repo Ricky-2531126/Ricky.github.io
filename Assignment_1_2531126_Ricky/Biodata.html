@@ -191,8 +191,8 @@
         }
 
         body {
-            /* Sedikit gradasi pada bg agar efek blur liquid glass terlihat nyata */
-            background: linear-gradient(135deg, #fcfdfe 0%, #e8eff5 100%);
+            /* Background gradasi halus agar efek liquid glass terlihat maksimal */
+            background: linear-gradient(135deg, #fcfdfe 0%, #e2e8f0 100%);
             background-attachment: fixed;
             color: #333;
             line-height: 1.6;
@@ -263,7 +263,7 @@
             cursor: pointer;
         }
 
-        /* --- 3. KONTEN UTAMA DENGAN LIQUID GLASS --- */
+        /* --- 3. KONTEN UTAMA DENGAN EFEK LIQUID GLASS & HOVER --- */
         main { padding: 60px 10%; }
 
         .home-container {
@@ -272,20 +272,29 @@
             align-items: flex-start;
         }
 
-        /* PENERAPAN EFEK LIQUID GLASS */
+        /* EFEK LIQUID GLASS */
         .intro-section, .featured-section {
             flex: 1;
-            /* Menggunakan warna Navy Header dengan transparansi */
             background: rgba(84, 100, 116, 0.4); 
-            /* Efek blur liquid */
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            /* Kilauan tepi kaca */
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 15px;
             padding: 35px;
-            color: white; /* Kontras tinggi */
+            color: white;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            
+            /* Animasi transisi untuk Hover */
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            cursor: default;
+        }
+
+        /* EFEK HOVER (DITAMBAHKAN) */
+        .intro-section:hover, .featured-section:hover {
+            transform: translateY(-8px); /* Mengangkat kotak */
+            background: rgba(84, 100, 116, 0.55); /* Warna sedikit lebih solid */
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4); /* Kilauan tepi lebih terang */
         }
 
         .intro-section h2, .featured-section h3 {
@@ -294,7 +303,6 @@
             font-weight: 600;
         }
 
-        /* Menghilangkan garis vertikal agar tidak merusak efek kotak glass */
         .intro-section { border-right: none; }
 
         .mini-project-card {
@@ -303,6 +311,11 @@
             border-left: 4px solid rgba(255, 255, 255, 0.5);
             border-radius: 4px;
             margin-top: 20px;
+            transition: background 0.3s;
+        }
+
+        .mini-project-card:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .text-link {
@@ -358,8 +371,6 @@
 
         @media (max-width: 850px) {
             .home-container { flex-direction: column; gap: 40px; }
-            .identity-header-section { padding: 40px 5%; }
-            .navbar, main { padding-left: 5%; padding-right: 5%; }
         }
     </style>
 </head>
