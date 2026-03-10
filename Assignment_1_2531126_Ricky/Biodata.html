@@ -191,7 +191,7 @@
         }
 
         body {
-            /* Background gradasi halus agar efek liquid glass terlihat maksimal */
+            /* Background gradasi agar efek glass blur terlihat kontras */
             background: linear-gradient(135deg, #fcfdfe 0%, #e2e8f0 100%);
             background-attachment: fixed;
             color: #333;
@@ -222,8 +222,15 @@
             background-color: #ccc;
         }
 
-        .id-title h1 { font-size: 2.5rem; margin: 0; }
-        .id-title p { font-size: 1.1rem; opacity: 0.9; }
+        .id-title h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        .id-title p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
 
         .id-details-row {
             display: flex;
@@ -232,28 +239,62 @@
             padding-top: 20px;
         }
 
-        .id-detail-item span { display: block; }
-        .detail-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; }
-        .detail-value { font-weight: 500; }
+        .id-detail-item span {
+            display: block;
+        }
 
-        /* --- 2. NAVBAR (STICKY) --- */
+        .detail-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+
+        .detail-value {
+            font-weight: 500;
+        }
+
+        /* --- 2. NAVBAR STICKY (PERBAIKAN) --- */
         .navbar {
             display: flex;
             align-items: center;
             background-color: #2c3e50;
             color: white;
             padding: 0.8rem 10%;
+            /* Sticky Logic */
+            position: -webkit-sticky;
             position: sticky;
             top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 2000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .logo { font-size: 1.3rem; font-weight: bold; margin-left: 15px; }
-        .nav-links { list-style: none; display: flex; margin-left: auto; }
-        .nav-links li { margin-left: 25px; }
-        .nav-links a { color: white; text-decoration: none; font-size: 0.95rem; transition: opacity 0.2s; }
-        .nav-links a:hover { opacity: 0.7; }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-left: 15px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin-left: auto;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
 
         .toggle-btn {
             font-size: 1.5rem;
@@ -263,8 +304,10 @@
             cursor: pointer;
         }
 
-        /* --- 3. KONTEN UTAMA DENGAN EFEK LIQUID GLASS & HOVER --- */
-        main { padding: 60px 10%; }
+        /* --- 3. KONTEN UTAMA DENGAN EFEK LIQUID GLASS --- */
+        main {
+            padding: 60px 10%;
+        }
 
         .home-container {
             display: flex;
@@ -272,10 +315,12 @@
             align-items: flex-start;
         }
 
-        /* EFEK LIQUID GLASS */
-        .intro-section, .featured-section {
+        /* PENERAPAN EFEK LIQUID GLASS */
+        .intro-section,
+        .featured-section {
             flex: 1;
-            background: rgba(84, 100, 116, 0.4); 
+            /* Navy Header Color + 40% Alpha */
+            background: rgba(84, 100, 116, 0.4);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -283,27 +328,24 @@
             padding: 35px;
             color: white;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            
-            /* Animasi transisi untuk Hover */
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            cursor: default;
         }
 
-        /* EFEK HOVER (DITAMBAHKAN) */
-        .intro-section:hover, .featured-section:hover {
-            transform: translateY(-8px); /* Mengangkat kotak */
-            background: rgba(84, 100, 116, 0.55); /* Warna sedikit lebih solid */
+        /* EFEK HOVER */
+        .intro-section:hover,
+        .featured-section:hover {
+            transform: translateY(-8px);
+            background: rgba(84, 100, 116, 0.55);
             box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.4); /* Kilauan tepi lebih terang */
+            border: 1px solid rgba(255, 255, 255, 0.4);
         }
 
-        .intro-section h2, .featured-section h3 {
+        .intro-section h2,
+        .featured-section h3 {
             color: white;
             margin-bottom: 20px;
             font-weight: 600;
         }
-
-        .intro-section { border-right: none; }
 
         .mini-project-card {
             background: rgba(255, 255, 255, 0.1);
@@ -311,11 +353,6 @@
             border-left: 4px solid rgba(255, 255, 255, 0.5);
             border-radius: 4px;
             margin-top: 20px;
-            transition: background 0.3s;
-        }
-
-        .mini-project-card:hover {
-            background: rgba(255, 255, 255, 0.2);
         }
 
         .text-link {
@@ -329,18 +366,39 @@
             padding: 0;
         }
 
-        /* --- SIDEBAR --- */
+        /* --- 4. SIDEBAR --- */
         .sidebar {
-            height: 100%; width: 0; position: fixed; z-index: 1001; top: 0; left: 0;
-            background-color: #fff; overflow-x: hidden; transition: 0.3s;
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 3000;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            overflow-x: hidden;
+            transition: 0.3s;
             box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
         }
 
-        .sidebar-content { padding: 40px 20px; width: 250px; }
+        .sidebar-content {
+            padding: 40px 20px;
+            width: 250px;
+        }
 
-        /* --- FOOTER & GAMBAR (DIJAGA TETAP SAMA) --- */
-        .full-width-image { width: 100%; height: 400px; margin: 40px 0; overflow: hidden; }
-        .full-width-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        /* --- 5. FOOTER & IMAGE (DIPERTAHANKAN) --- */
+        .full-width-image {
+            width: 100%;
+            height: 400px;
+            margin: 40px 0;
+            overflow: hidden;
+        }
+
+        .full-width-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
 
         footer {
             background-color: #2c3e50;
@@ -349,13 +407,42 @@
             margin-top: 50px;
         }
 
-        .footer-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
-        .footer-section { flex: 1; min-width: 200px; }
-        .footer-section h4 { margin-bottom: 20px; color: #3498db; text-transform: uppercase; font-size: 0.9rem; }
-        .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 10px; }
-        .footer-links a { color: #bdc3c7; text-decoration: none; transition: color 0.3s; }
-        .footer-links a:hover { color: white; }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 20px;
+            color: #3498db;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
 
         .footer-bottom {
             text-align: center;
@@ -366,11 +453,38 @@
             color: #95a5a6;
         }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-        #content-area { animation: fadeIn 0.6s ease-out; }
+        /* ANIMASI MASUK */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #content-area {
+            animation: fadeIn 0.6s ease-out;
+        }
 
         @media (max-width: 850px) {
-            .home-container { flex-direction: column; gap: 40px; }
+            .home-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .identity-header-section {
+                padding: 40px 5%;
+            }
+
+            .navbar,
+            main {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
         }
     </style>
 </head>
@@ -397,24 +511,21 @@
         </div>
     </div>
 
-    <header>
-        <nav class="navbar">
-            <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-            <div class="logo">MyPortfolio</div>
-            <ul class="nav-links">
-                <li><a href="#" onclick="showHome(event)">Home</a></li>
-                <li><a href="#" onclick="showProjects(event)">Projects</a></li>
-                <li><a href="#" onclick="showContact(event)">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="navbar">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+        <div class="logo">MyPortfolio</div>
+        <ul class="nav-links">
+            <li><a href="#" onclick="showHome(event)">Home</a></li>
+            <li><a href="#" onclick="showProjects(event)">Projects</a></li>
+            <li><a href="#" onclick="showContact(event)">Contact</a></li>
+        </ul>
+    </nav>
 
     <aside id="sidebar" class="sidebar">
         <div class="sidebar-content">
             <h3>Menu Tambahan</h3>
             <p style="font-size: 0.9rem; margin-top: 20px; color: #666;">
                 Fokus: Software Engineering<br>
-                Lokasi: Indonesia<br>
                 Tech: Node.js, TypeScript
             </p>
             <button onclick="toggleSidebar()" style="margin-top: 30px; cursor:pointer;">Tutup ×</button>
@@ -449,8 +560,8 @@
                 <h4>Hubungi Saya</h4>
                 <ul class="footer-links">
                     <li><a href="mailto:email@anda.com">Email Me</a></li>
-                    <li><a href="https://github.com/username" target="_blank">GitHub</a></li>
-                    <li><a href="https://linkedin.com/in/username" target="_blank">LinkedIn</a></li>
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">LinkedIn</a></li>
                 </ul>
             </div>
         </div>
@@ -467,8 +578,7 @@
         }
 
         function renderHome() {
-            const contentArea = document.getElementById("content-area");
-            contentArea.innerHTML = `
+            document.getElementById("content-area").innerHTML = `
                 <div class="home-container">
                     <section class="intro-section">
                         <h2>Tentang Saya</h2>
@@ -487,7 +597,7 @@
             `;
         }
 
-        function showHome(event) { event.preventDefault(); renderHome(); }
+        function showHome(e) { e.preventDefault(); renderHome(); }
 
         function showProjects(event) {
             event.preventDefault();
@@ -502,7 +612,7 @@
 
         function showContact(event) {
             event.preventDefault();
-            document.getElementById("content-area").innerHTML = "<h2>Kontak</h2><p>Hubungi saya di: email@anda.com</p>";
+            document.getElementById("content-area").innerHTML = "<h2>Kontak</h2><p>Hubungi saya di: 25.01.ricky.03@uib.edu</p>";
         }
 
         window.onload = renderHome;
