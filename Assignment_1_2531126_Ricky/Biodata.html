@@ -181,79 +181,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Saya</title>
-    <link rel="stylesheet" href="style.css">
     <style>
-        /* Reset Dasar */
+        /* --- RESET & DASAR --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            background-color: #f4f4f9;
+            /* Sedikit gradasi pada bg agar efek blur liquid glass terlihat nyata */
+            background: linear-gradient(135deg, #fcfdfe 0%, #e8eff5 100%);
+            background-attachment: fixed;
+            color: #333;
+            line-height: 1.6;
         }
 
-        /* Navbar & Header */
+        /* --- 1. TOP IDENTITY HEADER --- */
+        .identity-header-section {
+            background: #546474;
+            color: white;
+            padding: 60px 10%;
+            width: 100%;
+        }
+
+        .id-content {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .id-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            object-fit: cover;
+            background-color: #ccc;
+        }
+
+        .id-title h1 { font-size: 2.5rem; margin: 0; }
+        .id-title p { font-size: 1.1rem; opacity: 0.9; }
+
+        .id-details-row {
+            display: flex;
+            gap: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            padding-top: 20px;
+        }
+
+        .id-detail-item span { display: block; }
+        .detail-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; }
+        .detail-value { font-weight: 500; }
+
+        /* --- 2. NAVBAR (STICKY) --- */
         .navbar {
             display: flex;
             align-items: center;
             background-color: #2c3e50;
             color: white;
-            padding: 1rem 2rem;
-            position: fixed;
-            width: 100%;
+            padding: 0.8rem 10%;
+            position: sticky;
             top: 0;
             z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-left: 1rem;
-        }
+        .logo { font-size: 1.3rem; font-weight: bold; margin-left: 15px; }
+        .nav-links { list-style: none; display: flex; margin-left: auto; }
+        .nav-links li { margin-left: 25px; }
+        .nav-links a { color: white; text-decoration: none; font-size: 0.95rem; transition: opacity 0.2s; }
+        .nav-links a:hover { opacity: 0.7; }
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            margin-left: auto;
-        }
-
-        .nav-links li {
-            margin-left: 20px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            height: 100%;
-            width: 0;
-            /* Mulai dengan tertutup */
-            position: fixed;
-            z-index: 999;
-            top: 60px;
-            /* Di bawah navbar */
-            left: 0;
-            background-color: #ffffff;
-            overflow-x: hidden;
-            transition: 0.3s;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .sidebar-content {
-            padding: 20px;
-            width: 250px;
-        }
-
-        /* Tombol Toggle */
         .toggle-btn {
             font-size: 1.5rem;
             background: none;
@@ -262,301 +263,238 @@
             cursor: pointer;
         }
 
-        /* Main Content */
-        main {
-            margin-top: 80px;
-            padding: 20px;
-            transition: margin-left 0.3s;
-        }
+        /* --- 3. KONTEN UTAMA DENGAN LIQUID GLASS --- */
+        main { padding: 60px 10%; }
 
-        .hero {
-            text-align: center;
-            padding: 50px 0;
-        }
-
-        /* Styling Profile di Sidebar */
-        .profile-section {
-            text-align: center;
-            padding-bottom: 20px;
-        }
-
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            /* Membuat gambar jadi bulat */
-            object-fit: cover;
-            border: 3px solid #2c3e50;
-            margin-bottom: 15px;
-            background-color: #ddd;
-        }
-
-        .profile-section h3 {
-            font-size: 1.2rem;
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-
-        .profile-section span {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-            display: block;
-        }
-
-        .separator {
-            border: 0;
-            border-top: 1px solid #eee;
-            margin: 20px 0;
-        }
-
-        .bio-details p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: #34495e;
-            margin-bottom: 10px;
-        }
-
-        /* Container untuk Grid Proyek */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        /* Styling Kartu Proyek */
-        .project-card {
-            background: white;
-            border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
-            text-align: left;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-card h3 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-        }
-
-        .project-card p {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .tag {
-            display: inline-block;
-            background: #e1e8ed;
-            color: #2c3e50;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-right: 5px;
-        }
-
-        /* Tambahkan ini di style.css */
-        #content-area {
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Styling Form Kontak */
-        .contact-section {
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-form {
+        .home-container {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        /* PENERAPAN EFEK LIQUID GLASS */
+        .intro-section, .featured-section {
+            flex: 1;
+            /* Menggunakan warna Navy Header dengan transparansi */
+            background: rgba(84, 100, 116, 0.4); 
+            /* Efek blur liquid */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            /* Kilauan tepi kaca */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 35px;
+            color: white; /* Kontras tinggi */
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-section h2, .featured-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Menghilangkan garis vertikal agar tidak merusak efek kotak glass */
+        .intro-section { border-right: none; }
+
+        .mini-project-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-left: 4px solid rgba(255, 255, 255, 0.5);
+            border-radius: 4px;
             margin-top: 20px;
         }
 
-        .contact-form input,
-        .contact-form textarea {
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 1rem;
+        .text-link {
+            background: none;
+            border: none;
+            color: #fff;
+            text-decoration: underline;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            padding: 0;
         }
 
-        /* Styling Tombol CTA */
-        .cta-btn {
+        /* --- SIDEBAR --- */
+        .sidebar {
+            height: 100%; width: 0; position: fixed; z-index: 1001; top: 0; left: 0;
+            background-color: #fff; overflow-x: hidden; transition: 0.3s;
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar-content { padding: 40px 20px; width: 250px; }
+
+        /* --- FOOTER & GAMBAR (DIJAGA TETAP SAMA) --- */
+        .full-width-image { width: 100%; height: 400px; margin: 40px 0; overflow: hidden; }
+        .full-width-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        footer {
             background-color: #2c3e50;
             color: white;
-            padding: 10px 25px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background 0.3s;
+            padding: 60px 10% 20px 10%;
+            margin-top: 50px;
         }
 
-        .cta-btn:hover {
-            background-color: #34495e;
+        .footer-container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
+        .footer-section { flex: 1; min-width: 200px; }
+        .footer-section h4 { margin-bottom: 20px; color: #3498db; text-transform: uppercase; font-size: 0.9rem; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: #bdc3c7; text-decoration: none; transition: color 0.3s; }
+        .footer-links a:hover { color: white; }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 40px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.85rem;
+            color: #95a5a6;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        #content-area { animation: fadeIn 0.6s ease-out; }
+
+        @media (max-width: 850px) {
+            .home-container { flex-direction: column; gap: 40px; }
+            .identity-header-section { padding: 40px 5%; }
+            .navbar, main { padding-left: 5%; padding-right: 5%; }
         }
     </style>
 </head>
 
 <body>
 
+    <div class="identity-header-section">
+        <div class="id-content">
+            <img src="https://via.placeholder.com/100" alt="Profile" class="id-avatar">
+            <div class="id-title">
+                <h1>Nama Anda</h1>
+                <p>Aspiring Software Engineer</p>
+            </div>
+        </div>
+        <div class="id-details-row">
+            <div class="id-detail-item">
+                <span class="detail-label">Status</span>
+                <span class="detail-value">Student / Tech Enthusiast</span>
+            </div>
+            <div class="id-detail-item">
+                <span class="detail-label">Keahlian</span>
+                <span class="detail-value">Backend Web Development</span>
+            </div>
+        </div>
+    </div>
+
     <header>
         <nav class="navbar">
             <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
             <div class="logo">MyPortfolio</div>
             <ul class="nav-links">
-                <ul class="nav-links">
-                    <li><a href="#" onclick="showHome(event)">Home</a></li>
-                    <li><a href="#" onclick="showProjects(event)">Projects</a></li>
-                    <li><a href="#" onclick="showContact(event)">Contact</a></li>
-                </ul>
+                <li><a href="#" onclick="showHome(event)">Home</a></li>
+                <li><a href="#" onclick="showProjects(event)">Projects</a></li>
+                <li><a href="#" onclick="showContact(event)">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <aside id="sidebar" class="sidebar">
         <div class="sidebar-content">
-            <div class="profile-section">
-                <img src=".\1770347325712.jpg" alt="Profile Picture" class="profile-img">
-                <h3>Ricky</h3>
-                <span>Aspiring Developer</span>
-            </div>
-
-            <hr class="separator">
-
-            <div class="bio-details">
-                <p><strong>Fokus:</strong> Software Engineering</p>
-                <p><strong>Lokasi:</strong> Indonesia</p>
-                <p><strong>Tech Stack:</strong><br> TypeScript, Node.js, CSS</p>
-            </div>
+            <h3>Menu Tambahan</h3>
+            <p style="font-size: 0.9rem; margin-top: 20px; color: #666;">
+                Fokus: Software Engineering<br>
+                Lokasi: Indonesia<br>
+                Tech: Node.js, TypeScript
+            </p>
+            <button onclick="toggleSidebar()" style="margin-top: 30px; cursor:pointer;">Tutup ×</button>
         </div>
     </aside>
 
     <main id="main-content">
-        <div id="content-area">
-            <section class="hero">
-                <h1>Selamat Datang di Portfolio Saya</h1>
-                <p>Seorang pengembang yang berfokus pada solusi teknologi modern.</p>
-            </section>
-        </div>
+        <div id="content-area"></div>
     </main>
+
+    <section class="full-width-image">
+        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072" alt="Tech Background">
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>MyPortfolio</h4>
+                <p style="color: #bdc3c7; font-size: 0.9rem;">
+                    Membangun solusi perangkat keras dan lunak yang efisien dengan fokus pada keamanan dan stabilitas.
+                </p>
+            </div>
+            <div class="footer-section">
+                <h4>Navigasi</h4>
+                <ul class="footer-links">
+                    <li><a href="#" onclick="showHome(event)">Home</a></li>
+                    <li><a href="#" onclick="showProjects(event)">Projects</a></li>
+                    <li><a href="#" onclick="showContact(event)">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Hubungi Saya</h4>
+                <ul class="footer-links">
+                    <li><a href="mailto:email@anda.com">Email Me</a></li>
+                    <li><a href="https://github.com/username" target="_blank">GitHub</a></li>
+                    <li><a href="https://linkedin.com/in/username" target="_blank">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Nama Anda. Dibuat dengan TypeScript & Node.js.
+        </div>
+    </footer>
 
     <script>
         function toggleSidebar() {
             const sidebar = document.getElementById("sidebar");
-            const mainContent = document.getElementById("main-content");
             const isOpen = sidebar.style.width === "250px";
-
-            if (isOpen) {
-                sidebar.style.width = "0";
-                mainContent.style.marginLeft = "0";
-            } else {
-                sidebar.style.width = "250px";
-                mainContent.style.marginLeft = "250px";
-            }
+            sidebar.style.width = isOpen ? "0" : "250px";
         }
 
         function renderHome() {
             const contentArea = document.getElementById("content-area");
             contentArea.innerHTML = `
-        <section class="hero">
-            <h1>Selamat Datang di Portfolio Saya</h1>
-            <p>Seorang pengembang yang berfokus pada pembangunan aplikasi yang stabil dan aman.</p>
-        </section>
-    `;
+                <div class="home-container">
+                    <section class="intro-section">
+                        <h2>Tentang Saya</h2>
+                        <p>Saya berfokus pada pembangunan aplikasi yang stabil dan aman menggunakan teknologi modern seperti <strong>Node.js</strong> dan <strong>TypeScript</strong>.</p>
+                        <p style="margin-top: 15px;">Dedikasi saya adalah menciptakan arsitektur sistem yang efisien dan skalabel untuk kebutuhan industri masa depan.</p>
+                    </section>
+                    <section class="featured-section">
+                        <h3>Proyek Unggulan</h3>
+                        <div class="mini-project-card">
+                            <h4>E-Delivery System</h4>
+                            <p>Manajemen pengiriman dengan database relasional yang terstruktur.</p>
+                            <button class="text-link" onclick="showProjects(event)">Lihat Detail →</button>
+                        </div>
+                    </section>
+                </div>
+            `;
         }
 
-        // Fungsi untuk tombol Home di Navbar
-        function showHome(event) {
-            event.preventDefault();
-            renderHome();
-        }
-
-        // Pastikan saat halaman pertama kali dibuka, konten Home langsung muncul
-        window.onload = renderHome;
-
-        const dummyProjects = [
-            {
-                title: "E-Delivery System",
-                desc: "Sistem manajemen pengiriman paket dengan integrasi database relasional.",
-                tech: ["SQL", "Node.js"]
-            },
-            {
-                title: "Auth Guard Pro",
-                desc: "Sistem autentikasi user yang aman dengan enkripsi data dan perlindungan sesi.",
-                tech: ["TypeScript", "JWT"]
-            },
-            {
-                title: "Inventory Manager",
-                desc: "Aplikasi manajemen stok barang real-time untuk efisiensi operasional gudang.",
-                tech: ["React", "Express"]
-            },
-            {
-                title: "Personal Finance Tracker",
-                desc: "Aplikasi pencatatan keuangan harian dengan fitur kategori otomatis.",
-                tech: ["JavaScript", "Local Storage"]
-            }
-        ];
+        function showHome(event) { event.preventDefault(); renderHome(); }
 
         function showProjects(event) {
-            event.preventDefault(); // Mencegah halaman reload saat link diklik
-            const contentArea = document.getElementById("content-area");
-
-            let html = `<h2>My Projects</h2><div class="projects-grid">`;
-
-            dummyProjects.forEach(proj => {
-                html += `
-            <div class="project-card">
-                <h3>${proj.title}</h3>
-                <p>${proj.desc}</p>
-                <div>
-                    ${proj.tech.map(t => `<span class="tag">${t}</span>`).join('')}
+            event.preventDefault();
+            document.getElementById("content-area").innerHTML = `
+                <h2>Daftar Proyek</h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                    <div class="mini-project-card" style="background: #f8f9fa; color: #333; border-left-color: #546474;"><h4>Auth Guard Pro</h4><p>Sistem JWT Authentication.</p></div>
+                    <div class="mini-project-card" style="background: #f8f9fa; color: #333; border-left-color: #546474;"><h4>Inventory App</h4><p>Stok manajemen barang.</p></div>
                 </div>
-            </div>
-        `;
-            });
-
-            html += `</div>`;
-            contentArea.innerHTML = html;
+            `;
         }
 
-        // Fungsi untuk menampilkan halaman Contact
         function showContact(event) {
             event.preventDefault();
-            const contentArea = document.getElementById("content-area");
-
-            contentArea.innerHTML = `
-        <section class="contact-section">
-            <h2>Hubungi Saya</h2>
-            <p>Silakan kirim pesan melalui formulir di bawah ini:</p>
-            <form class="contact-form">
-                <input type="text" placeholder="Nama Lengkap" required>
-                <input type="email" placeholder="Email Anda" required>
-                <textarea placeholder="Pesan Anda" rows="5" required></textarea>
-                <button type="submit" class="cta-btn">Kirim Pesan</button>
-            </form>
-        </section>
-    `;
+            document.getElementById("content-area").innerHTML = "<h2>Kontak</h2><p>Hubungi saya di: email@anda.com</p>";
         }
+
+        window.onload = renderHome;
     </script>
 </body>
 
