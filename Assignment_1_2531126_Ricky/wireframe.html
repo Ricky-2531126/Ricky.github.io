@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PDF Viewer - Ricky</title>
+    <style>
+        /* Reset margins for a true full-width feel */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .nav-header {
+            padding: 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .nav-header a {
+            color: #4a3728;
+            /* Matching your dark coffee header tone */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Container now focuses on vertical centering and padding */
+        .pdf-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            /* Padding only on top/bottom */
+            min-height: calc(100vh - 80px);
+        }
+
+        /* Removed width: 80% and max-width to allow horizontal spanning */
+        .pdf-viewer {
+            width: 100%;
+            /* Spans horizontally across the page */
+            height: 90vh;
+            /* Uses most of the viewport height */
+            border: none;
+            /* Cleaner look for full-width */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Mobile Responsive adjustment */
+        @media (max-width: 768px) {
+            .pdf-viewer {
+                height: 70vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-header">
+        <a href="Biodata.html">← Back to main page</a>
+    </div>
+
+    <div class="pdf-wrapper">
+        <iframe src="3_page_Wireframe.pdf" class="pdf-viewer">
+            <p>Your browser does not support iframes. <a href="3_page_Wireframe.pdf">Download PDF</a></p>
+        </iframe>
+    </div>
+</body>
+
+</html>
