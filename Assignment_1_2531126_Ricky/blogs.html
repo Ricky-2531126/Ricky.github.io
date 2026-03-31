@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #fff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #181310;
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(24, 19, 16, 1) 0%, rgba(168, 153, 146, 1) 100%);
+            display: grid;
+            /* Column 1: Left Nav, Column 2: Logo (Auto), Column 3: Inquiries (1fr) */
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            padding: 0 2rem;
+            color: white;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .nav-right-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 100%;
+        }
+
+        /* The "Inquiries" Block - Right Aligned */
+        .nav-inquiries-block {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            margin-right: -2rem;
+            cursor: pointer;
+            /* Negates the nav padding to touch the edge */
+        }
+
+        .nav-divider {
+            width: 1.5px;
+            height: 40px;
+            /* Matches the "About Me" accent height */
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-inquiries-text {
+            display: flex;
+            flex-direction: column;
+            padding: 0 1.5rem;
+            line-height: 1.2;
+        }
+
+        .nav-inquiries-text span {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .close-sidebar {
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            padding: 8px 30px;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.1);
+            transition: border 0.3s ease;
+        }
+
+        .close-sidebar:hover {
+            border: 2px solid #AFDB0F;
+            color: #AFDB0F;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger-lines {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 30px;
+        }
+
+        .hamburger-lines:hover .line {
+            background: #AFDB0F;
+            transition: background 0.3s ease;
+        }
+
+        .line {
+            width: 100%;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+        }
+
+        .nav-logo {
+            grid-column: 2;
+            background: none;
+            border: none;
+            color: white;
+            font-weight: 800;
+            font-size: 2rem;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        #sidebar,
+        #sidebar-right {
+            position: fixed;
+            top: 0;
+            width: 280px;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(24, 19, 16, 1) 0%, rgba(168, 153, 146, 1) 100%);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            z-index: 2000;
+            transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+            padding: 3rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        #sidebar {
+            left: 0;
+            transform: translateX(-100%);
+        }
+
+        #sidebar.open {
+            transform: translateX(0);
+        }
+
+        /* Sidebar Right Base */
+        #sidebar-right {
+            position: fixed;
+            top: 0;
+            right: 0;
+            /* Align to right side */
+            width: 280px;
+            height: 100%;
+            z-index: 2000;
+            transform: translateX(100%);
+            /* Start hidden off-screen to the right */
+            transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+            padding: 3rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #sidebar-right.open {
+            transform: translateX(0);
+            /* Slide in */
+        }
+
+        /* Contact Specific Styling */
+        .contact-label {
+            color: white;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .contact-divider {
+            width: 100%;
+            height: 2px;
+            background: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-list {
+            list-style: none;
+        }
+
+        .contact-list li {
+            margin-bottom: 1rem;
+        }
+
+        .contact-list a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-list a:hover {
+            color: #AFDB0F;
+            /* Match your highlight color */
+        }
+
+        .section-divider {
+            width: 100%;
+            height: 3px;
+            background: white;
+        }
+
+        .sidebar-header {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 4rem;
+        }
+
+        .sidebar-section {
+            margin-bottom: 0.75rem;
+        }
+
+        #sidebar .sidebar-section a {
+            text-decoration: none;
+            display: inline-block;
+            width: 100%;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: white;
+        }
+
+        #sidebar .sidebar-section a:hover {
+            transform: translateX(10px);
+        }
+
+        .sidebar-section.active a {
+            color: rgb(202, 184, 176);
+            pointer-events: none;
+            cursor: default;
+        }
+
+        .sidebar-section.active .section-divider {
+            background: rgb(225, 210, 200);
+            height: 6px;
+            box-shadow: 0 0 0px rgba(190, 181, 174, 0.2);
+        }
+
+        .sidebar-section h3 {
+            color: white;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-section.active h3 {
+            color: rgb(225, 210, 200);
+            text-shadow: 0 0 12px rgba(190, 181, 174, 0);
+            pointer-events: none;
+            cursor: default;
+        }
+
+        .sidebar-section:not(.active):hover h3 {
+            color: #AFDB0F;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .sidebar-section:not(.active):hover .section-divider {
+            background: #AFDB0F;
+            height: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::before {
+            content: "";
+            width: 6px;
+            height: 40px;
+            background: #181310;
+            border-radius: 3px;
+        }
+        /* BAREBONE PAGE */
+    </style>
+</head>
+
+<body>
+
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <span class="close-sidebar" onclick="toggleSidebar()">Close</span>
+        </div>
+
+        <div class="sidebar-section">
+            <a href="Biodata.html">
+                <h3>HOME</h3>
+                <div class="section-divider"></div>
+            </a>
+        </div>
+
+        <div class="sidebar-section active">
+            <a href="profile.html">
+                <h3>PROFILE</h3>
+                <div class="section-divider"></div>
+            </a>
+        </div>
+
+        <div class="sidebar-section">
+            <a href="projects.html">
+                <h3>PROJECTS</h3>
+                <div class="section-divider"></div>
+            </a>
+        </div>
+
+        <div class="sidebar-section">
+            <a href="blogs.html" onclick="toggleSidebar()">
+                <h3>My Blogs</h3>
+                <div class="section-divider"></div>
+            </a>
+        </div>
+        
+        <div class="sidebar-section">
+            <a href="wireframe.html" onclick="toggleSidebar()">
+                <h3>Wireframe Details</h3>
+                <div class="section-divider"></div>
+            </a>
+        </div>
+    </div>
+
+    <div id="sidebar-right" class="sidebar-right">
+        <div class="sidebar-header">
+            <span class="close-sidebar" onclick="toggleSidebar('right')">Close</span>
+        </div>
+
+        <div class="sidebar-content">
+            <div class="contact-section">
+                <h3 class="contact-label">Contacts</h3>
+                <div class="contact-divider"></div>
+                <ul class="contact-list">
+                    <li><a href="mailto:your-email@example.com">Email</a></li>
+                    <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <nav>
+        <div class="nav-left">
+            <div class="hamburger-lines" onclick="toggleSidebar('left')">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <button class="nav-logo" onclick="location.href='Biodata.html#runScroll'">PORTFOLIO</button>
+
+        <div class="nav-right-container">
+            <div class="nav-inquiries-block" onclick="toggleSidebar('right')">
+                <div class="nav-divider"></div>
+                <div class="nav-inquiries-text">
+                    <span>Further</span>
+                    <span>Inquiries</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BAREBONE PAGE -->
+
+    <ol>Configure switchports for both data and voice vlans.
+        <li>2811 Router</li>
+        <li>Switch conf t</li>
+        <li>vlan 10</li>
+        <li>name DATA</li>
+        <li>vlan 11</li>
+        <li>name VOICE</li>
+        <li>do sh vlan</li>
+        <strong>MAKE VLAN BEFORE INTERFACE ACCESS</strong>
+        <li>int range fa(number/start-end)</li>
+        <li>switchport mode access</li>
+        <li>switchport access vlan 10</li>
+        <li>switchport voice vlan 11</li>
+        <li>do wr</li>
+    </ol>
+    <ol>3. Configure trunk to the interface connecting to the router.
+        <li>int gi0/1</li>
+        <li>switchport mode trunk</li>
+        <li>ex</li>
+        <li>do wr</li>
+    </ol>
+    <ol>
+        Configure subinterfaces on the router and bind to vlan ID then assign IP address.
+        <li>conf t</li>
+        <li>int fa0/1</li>
+        <li>no shut</li>
+        <li>ex</li>
+        <strong>CREATE SUB VLAN</strong>
+        <li>int fa0/1.10</li>
+        <li>encapsulation dot1Q 10</li>
+        <li>ip add 10.10.10.1 255.255.255.0</li>
+        <li>ex</li>
+        <li>int fa0/1.10</li>
+        <li>encapsulation dot1Q 10</li>
+        <li>ip add 192.168.90.1 255.255.255.0</li>
+        <li>ex</li>
+        <strong>- - - REPEAT PREVIOUS STEP FOR ANOTHER ROUTER - - -</strong>
+        <li>conf t</li>
+        <li>int fa0/1</li>
+        <li>no shut</li>
+        <li>ex</li>
+        <strong>CREATE SUB VLAN</strong>
+        <li>int fa0/1.30</li>
+        <li>encapsulation dot1Q 10</li>
+        <li>ip add 10.20.10.1 255.255.255.0</li>
+        <li>ex</li>
+        <li>int fa0/1.31</li>
+        <li>encapsulation dot1Q 10</li>
+        <li>ip add 192.168.100.1 255.255.255.0</li>
+        <li>ex</li>
+    </ol>
+
+    <script>
+        function toggleSidebar(side) {
+            if (side === 'right') {
+                document.getElementById('sidebar-right').classList.toggle('open');
+            } else {
+                document.getElementById('sidebar').classList.toggle('open');
+            }
+        }
+
+        // BAREBONE PAGE
+    </script>
+</body>
+
+</html>

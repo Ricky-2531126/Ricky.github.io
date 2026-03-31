@@ -1,621 +1,689 @@
-<!--
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Biodata</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 700px;
-            margin: 40px auto;
-            padding: 20px;
-            background: #fbff93;
-            color: #333;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1,
-        h2 {
-            color: #2c3e50;
-        }
-
-        .section {
-            margin-bottom: 25px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .section:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .section p,
-        ul {
-            line-height: 1.6;
-        }
-
-        ul {
-            list-style-type: disc;
-            margin-left: 20px;
-        }
-
-        .photo {
-            float: right;
-            margin-left: 20px;
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            border: 2px solid #2c3e50;
-        }
-
-        .clearfix::after {
-            content: "";
-            display: table;
-            clear: both;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 10px;
-        }
-
-        td {
-            padding: 8px 10px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        td:first-child {
-            width: 40%;
-            font-weight: 600;
-            color: #2c3e50;
-        }
-    </style>
-</head>
-
-<body>
-    <header class="clearfix section">
-        <img src=".\1770347325712.jpg" alt="Your Photo"
-            class="photo" />
-        <h1>Ricky</h1>
-        <p><strong>Email:</strong> 25.01.ricky.03@uib.edu</p>
-        <p><strong>Phone:</strong> +62 859 10671 1839</p>
-        <p><strong>Address:</strong> Jl. Taman Kota, Lubuk Baja, Batam</p>
-    </header>
-
-    <section class="section">
-        <h2>Description</h2>
-        <p>I am currently studying in Batam International University majoring in Information Systems.</p>
-    </section>
-
-    <section class="section">
-        <h2>Education</h2>
-        <ul>
-        -->
-<!-- <li><strong>Bachelor of Science in Computer Science</strong>, Batam International University (2018 - 2022)</li> -->
-<!--<li><strong>High School Diploma</strong>, SMK Negeri 1 Tanjungpinang (2022 - 2025)</li>
-        </ul>
-    </section>
-
-    <section class="section">
-        <h2>Skills</h2>
-        <ul>
-            <li>HTML, CSS, JavaScript</li> -->
-<!-- <li>Python, Java</li> -->
-<!--<li>Python</li>
-            <li>Database Management (MySQL, MongoDB)</li>
-            <li>Problem Solving and Critical Thinking</li>
-        </ul>
-    </section>
-
-    <section class="section">
-        <h2>Experience</h2>
-        <ul>
-            <li><strong>Intern Software Developer</strong> at Tech Solutions (Jun 2021 - Aug 2021)
-                <ul>
-                    <li>Developed responsive web pages using HTML, CSS, and JavaScript.</li>
-                    <li>Assisted in backend API integration and testing.</li>
-                </ul>
-            </li>
-        </ul>
-    </section>
-
-    <section class="section">
-        <h2>Projects</h2>
-        <ul>
-            <li><strong>Portfolio Website:</strong> Developed a responsive personal portfolio using HTML, CSS, and
-                JavaScript to showcase my skills and work.</li>
-            <li><strong>Library Management System:</strong> Created a Python application to manage book inventory,
-                member registration, and lending process.</li>
-            <li><strong>Weather App:</strong> Built a simple weather forecast app using API integration with
-                OpenWeatherMap and vanilla JavaScript.</li>
-        </ul>
-    </section>
-
-    <section class="section">
-        <h2>Hobbies</h2>
-        <p>Coding, Reading, Playing Chess</p>
-    </section>
-
-    <section class="section">
-        <h2>Personal Details</h2>
-        <table>
-            <tbody>
-                <tr>
-                    <td><strong>Date of Birth:</strong></td>
-                    <td>July 13, 2007</td>
-                </tr>
-                <tr>
-                    <td><strong>Gender:</strong></td>
-                    <td>Male</td>
-                </tr>
-                <tr>
-                    <td><strong>Marital Status:</strong></td>
-                    <td>Single</td>
-                </tr>
-                <tr>
-                    <td><strong>Nationality:</strong></td>
-                    <td>Indonesian</td>
-                </tr>
-                <tr>
-                    <td><strong>Languages Known:</strong></td>
-                    <td>English</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-</body>
-
-</html>
--->
-
-<!DOCTYPE html>
-<html lang="id">
-
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Saya</title>
+    <title>Portfolio - Professional Layout</title>
     <style>
-        /* --- RESET & DASAR --- */
+        /* --- 1. CORE RESET & HIDE SCROLLBAR --- */
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
+        html {
+            /* REMOVED: CSS Snap Mandatory (it was too harsh) */
+            scroll-behavior: smooth;
+        }
+
+        html,
         body {
-            /* Background gradasi agar efek glass blur terlihat kontras */
-            background: linear-gradient(135deg, #fcfdfe 0%, #e2e8f0 100%);
-            background-attachment: fixed;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* --- 1. TOP IDENTITY HEADER --- */
-        .identity-header-section {
-            background: #546474;
-            color: white;
-            padding: 60px 10%;
             width: 100%;
+            background-color: #000;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            overflow-x: hidden;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
-        .id-content {
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+        nav {
+            position: fixed;
+            /* Keep it out of the document flow */
+            top: -100px;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            z-index: 1000;
+            display: flex;
+            /* Use Flex, not Grid */
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            transition: all 0.5s ease;
+            /* REMOVED: position: relative (this was causing the jump) */
+        }
+
+        nav.is-past-hero {
+            top: 0;
+            background: linear-gradient(135deg, rgba(24, 19, 16, 1) 0%, rgba(168, 153, 146, 1) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Force the Logo to stay perfectly centered */
+        .nav-logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: none;
+            border: none;
+            color: white;
+            font-weight: 800;
+            font-size: 2rem;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        /* The "Inquiries" Block - Right Aligned */
+        .nav-inquiries-block {
             display: flex;
             align-items: center;
-            gap: 25px;
-            margin-bottom: 30px;
+            height: 100%;
+            margin-right: -2rem;
+            cursor: pointer;
+            /* Negates the nav padding to touch the edge */
         }
 
-        .id-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 4px solid rgba(255, 255, 255, 0.2);
+        .nav-divider {
+            width: 1.5px;
+            height: 40px;
+            /* Matches the "About Me" accent height */
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-inquiries-text {
+            display: flex;
+            flex-direction: column;
+            padding: 0 1.5rem;
+            line-height: 1.2;
+        }
+
+        .nav-inquiries-text span {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            margin-bottom: 120px;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1.2;
+            min-width: 320px;
+        }
+
+        .about-text p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #444;
+        }
+
+        .about-image-box {
+            flex: 1;
+            min-width: 320px;
+            height: 450px;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-image-box img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            background-color: #ccc;
         }
 
-        .id-title h1 {
-            font-size: 2.5rem;
-            margin: 0;
+        .close-sidebar {
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            padding: 8px 30px;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.1);
+            transition: border 0.3s ease;
         }
 
-        .id-title p {
-            font-size: 1.1rem;
+        .close-sidebar:hover {
+            border: 2px solid #AFDB0F;
+            color: #AFDB0F;
+            transition: all 0.3s ease;
+        }
+
+        .fade-in-section {
+            opacity: 1;
+            transform: none;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glass-panel {
+            width: 50%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+            color: white;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-panel h1 {
+            font-size: 5.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 10px;
+            margin-bottom: 5px;
+            line-height: 0.9;
+        }
+
+        .glass-panel p {
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 1px;
             opacity: 0.9;
         }
 
-        .id-details-row {
-            display: flex;
-            gap: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
-            padding-top: 20px;
-        }
-
-        .id-detail-item span {
-            display: block;
-        }
-
-        .detail-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.7;
-        }
-
-        .detail-value {
-            font-weight: 500;
-        }
-
-        /* --- 2. NAVBAR STICKY (PERBAIKAN) --- */
-        .navbar {
-            display: flex;
-            align-items: center;
-            background-color: #2c3e50;
-            color: white;
-            padding: 0.8rem 10%;
-            /* Sticky Logic */
-            position: -webkit-sticky;
-            position: sticky;
+        /* --- UPDATED HERO FOR STICKY EFFECT --- */
+        #hero {
+            margin-top: 0;
+            padding-top: 0;
             top: 0;
-            z-index: 2000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .logo {
-            font-size: 1.3rem;
-            font-weight: bold;
-            margin-left: 15px;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            margin-left: auto;
-        }
-
-        .nav-links li {
-            margin-left: 25px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: opacity 0.2s;
-        }
-
-        .nav-links a:hover {
-            opacity: 0.7;
-        }
-
-        .toggle-btn {
-            font-size: 1.5rem;
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* --- 3. KONTEN UTAMA DENGAN EFEK LIQUID GLASS --- */
-        main {
-            padding: 60px 10%;
-        }
-
-        .home-container {
-            display: flex;
-            gap: 60px;
-            align-items: flex-start;
-        }
-
-        /* PENERAPAN EFEK LIQUID GLASS */
-        .intro-section,
-        .featured-section {
-            flex: 1;
-            /* Navy Header Color + 40% Alpha */
-            background: rgba(84, 100, 116, 0.4);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            padding: 35px;
-            color: white;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        /* EFEK HOVER */
-        .intro-section:hover,
-        .featured-section:hover {
-            transform: translateY(-8px);
-            background: rgba(84, 100, 116, 0.55);
-            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-        }
-
-        .intro-section h2,
-        .featured-section h3 {
-            color: white;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .mini-project-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 25px;
-            border-left: 4px solid rgba(255, 255, 255, 0.5);
-            border-radius: 4px;
-            margin-top: 20px;
-        }
-
-        .text-link {
-            background: none;
-            border: none;
-            color: #fff;
-            text-decoration: underline;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 15px;
-            padding: 0;
-        }
-
-        /* --- 4. SIDEBAR --- */
-        .sidebar {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 3000;
-            top: 0;
-            left: 0;
-            background-color: #fff;
-            overflow-x: hidden;
-            transition: 0.3s;
-            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .sidebar-content {
-            padding: 40px 20px;
-            width: 250px;
-        }
-
-        /* --- 5. FOOTER & IMAGE (DIPERTAHANKAN) --- */
-        .full-width-image {
+            height: 100vh;
             width: 100%;
-            height: 400px;
-            margin: 40px 0;
+            /* This keeps the car image still while you scroll */
+            background-attachment: fixed;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-viewport {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            background: url('Sample_Background2.jpg') no-repeat center center / cover;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
             overflow: hidden;
         }
 
-        .full-width-image img {
+        .nav-logo {
+            grid-column: 2;
+            background: none;
+            border: none;
+            color: white;
+            font-weight: 800;
+            font-size: 2rem;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .hamburger-lines {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            width: 30px;
+        }
+
+        .hamburger-lines:hover .line {
+            background: #AFDB0F;
+            /* Transitions to your "Stone" brand color on hover */
+            transition: background 0.3s ease;
+        }
+
+        .line {
             width: 100%;
+            height: 3px;
+            background: white;
+            border-radius: 2px;
+        }
+
+        .main-content {
+            background: #fff;
+            color: #111;
+            position: relative;
+            /* High z-index ensures it slides "over" the car */
+            z-index: 2;
+            padding: 100px 10%;
+            min-height: 100vh;
+            scroll-margin-top: 80px;
+        }
+
+        .section-divider {
+            width: 100%;
+            height: 3px;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::before {
+            content: "";
+            width: 6px;
+            height: 40px;
+            background: #000;
+            border-radius: 3px;
+        }
+
+        .show-content .glass-panel {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* --- 2. SIDEBAR STYLES --- */
+        #sidebar,
+        #sidebar-right {
+            position: fixed;
+            top: 0;
+            width: 280px;
             height: 100%;
-            object-fit: cover;
+            background: linear-gradient(180deg, rgba(24, 19, 16, 1) 0%, rgba(168, 153, 146, 1) 100%);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            z-index: 2000;
+            transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+            padding: 3rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        #sidebar {
+            left: 0;
+            transform: translateX(-100%);
+        }
+
+        #sidebar.open {
+            transform: translateX(0);
+        }
+
+        #sidebar-right {
+            right: 0;
+            /* Align to the right edge */
+            transform: translateX(100%);
+            /* Hide to the right */
+        }
+
+        #sidebar-right.open {
+            transform: translateX(0);
+        }
+
+        /* --- CONTACTS LIST STYLING --- */
+        .contact-links {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .contact-links li {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+        }
+
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
             display: block;
         }
 
-        footer {
-            background-color: #2c3e50;
-            color: white;
-            padding: 60px 10% 20px 10%;
-            margin-top: 50px;
+        .contact-links a:hover {
+            color: #AFDB0F;
+            transform: translateX(-5px);
+            /* Slide slightly left on hover */
         }
 
-        .footer-container {
+        .sidebar-header {
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 40px;
+            justify-content: center;
+            margin-bottom: 4rem;
         }
 
-        .footer-section {
-            flex: 1;
-            min-width: 200px;
+        .sidebar-section {
+            margin-bottom: 0.75rem;
         }
 
-        .footer-section h4 {
-            margin-bottom: 20px;
-            color: #3498db;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #bdc3c7;
+        #sidebar .sidebar-section a {
             text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
+            display: inline-block;
+            width: 100%;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             color: white;
         }
 
-        .footer-bottom {
+        #sidebar .sidebar-section a:hover {
+            transform: translateX(10px);
+        }
+
+        /* Style for the current page link */
+        .sidebar-section.active a {
+            color: rgb(202, 184, 176);
+            /* Dim the text */
+            pointer-events: none;
+            /* Disables clicking */
+            cursor: default;
+            /* Removes the hand pointer */
+        }
+
+        /* Optional: Change the divider color for the active link */
+        .sidebar-section.active .section-divider {
+            background: rgb(225, 210, 200);
+            /* Solid white to match text */
+            height: 6px;
+            /* A thicker, bold engineering line */
+            box-shadow: 0 0 0px rgba(190, 181, 174, 0.2);
+            /* Matches text glow */
+        }
+
+        .sidebar-section h3 {
+            color: white;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .sidebar-section.active h3 {
+            color: rgb(225, 210, 200);
+            /* Your specific highlight color */
+            text-shadow: 0 0 12px rgba(190, 181, 174, 0);
+            /* Subtly warm glow */
+            /* Subtly adds depth/glow */
+            pointer-events: none;
+            /* PREVENTS CLICKING (so it's not redundant) */
+            cursor: default;
+            /* Changes pointer from hand to arrow */
+        }
+
+        .sidebar-section:not(.active):hover h3 {
+            color: #AFDB0F;
+            /* Warm yellow */
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .sidebar-section:not(.active):hover .section-divider {
+            background: #AFDB0F;
+            /* Divider turns yellow too */
+            height: 4px;
+            /* Slightly thicker than default but thinner than active */
+            transition: all 0.3s ease;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 30px;
+            width: 100%;
+        }
+
+        .skill-card {
+            background: #f8f8f8;
+            padding: 20px;
+            border-radius: 12px;
+            font-weight: 600;
             text-align: center;
-            padding-top: 40px;
-            margin-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.85rem;
-            color: #95a5a6;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* ANIMASI MASUK */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        #content-area {
-            animation: fadeIn 0.6s ease-out;
-        }
-
-        @media (max-width: 850px) {
-            .home-container {
-                flex-direction: column;
-                gap: 40px;
-            }
-
-            .identity-header-section {
-                padding: 40px 5%;
-            }
-
-            .navbar,
-            main {
-                padding-left: 5%;
-                padding-right: 5%;
-            }
+        .skill-card:hover {
+            background: #fff;
+            border-color: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
         }
     </style>
 </head>
 
 <body>
 
-    <div class="identity-header-section">
-        <div class="id-content">
-            <img src="./1770347325712.jpg" alt="Profile" class="id-avatar">
-            <div class="id-title">
-                <h1>Ricky</h1>
-                <p>Aspiring Software Engineer</p>
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <span class="close-sidebar" onclick="toggleSidebar()">Close</span>
+        </div>
+
+        <div class="sidebar-section active"> <a href="javascript:void(0)">
+                <h3>Home</h3>
+                <div class="section-divider"></div>
+            </a>
+        </div>
+
+        <div class="sidebar-section">
+            <a href="profile.html">
+                <h3>Profile</h3>
+                <div class="section-divider"></div>
+            </a>
+        </div>
+
+        <div class="sidebar-section">
+            <a href="projects.html" onclick="toggleSidebar()">
+                <h3>Projects</h3>
+                <div class="section-divider"></div>
+            </a>
+        </div>
+        <div class="sidebar-section">
+            <a href="blogs.html" onclick="toggleSidebar()">
+                <h3>My Blogs</h3>
+                <div class="section-divider"></div>
+            </a>
+        </div>
+        <div class="sidebar-section">
+            <a href="wireframe.html" onclick="toggleSidebar()">
+                <h3>Wireframe Details</h3>
+                <div class="section-divider"></div>
+            </a>
+        </div>
+    </div>
+
+    <div id="hero" class="hero-viewport">
+        <div class="glass-panel">
+            <h1>Summary</h1>
+            <p>Undergraduate Compsci Student & Beginner Developer</p>
+        </div>
+    </div>
+
+    <nav>
+        <div class="nav-left">
+            <div class="hamburger-lines" onclick="toggleSidebar()">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
             </div>
         </div>
-        <div class="id-details-row">
-            <div class="id-detail-item">
-                <span class="detail-label">Status</span>
-                <span class="detail-value">Student / Tech Enthusiast</span>
+
+        <button class="nav-logo" onclick="scrollToMainContent()">PORTFOLIO</button>
+
+        <div class="nav-inquiries-block" onclick="toggleSidebar('right')">
+            <div class="nav-divider"></div>
+            <div class="nav-inquiries-text">
+                <span style="color: white;">Further</span>
+                <span style="color: white;">Inquiries</span>
             </div>
-            <div class="id-detail-item">
-                <span class="detail-label">Keahlian</span>
-                <span class="detail-value">Backend Web Development</span>
+        </div>
+    </nav>
+
+    <div id="sidebar-right" class="sidebar side-right">
+        <div class="sidebar-header">
+            <span class="close-sidebar" onclick="toggleSidebar('right')">Close</span>
+        </div>
+        <div class="sidebar-content">
+            <h3 style="color: white;">Contacts</h3>
+            <div class="section-divider"></div>
+            <ul class="contact-links">
+                <li><a href="mailto:your@email.com">Email</a></li>
+                <li><a href="#">LinkedIn</a></li>
+                <li><a href="#">GitHub</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div id="about" class="fade-in-section about-container">
+            <div class="about-text">
+                <h2 class="section-title">About Me</h2>
+                <p>I am a student currently being enthusiastic about software development. I focus on building secure,
+                    scalable web applications with high data integrity.</p>
+            </div>
+            <div class="about-image-box">
+                <img src="Self_Picture1.jpg" alt="Portfolio Image">
+            </div>
+        </div>
+
+        <div id="skills" class="fade-in-section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">Node.js</div>
+                <div class="skill-card">Javascript</div>
+                <div class="skill-card">SQL / 3NF</div>
+                <div class="skill-card">Python</div>
             </div>
         </div>
     </div>
 
-    <nav class="navbar">
-        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-        <div class="logo">MyPortfolio</div>
-        <ul class="nav-links">
-            <li><a href="#" onclick="showHome(event)">Home</a></li>
-            <li><a href="#" onclick="showProjects(event)">Projects</a></li>
-            <li><a href="#" onclick="showContact(event)">Contact</a></li>
-        </ul>
-    </nav>
-
-    <aside id="sidebar" class="sidebar">
-        <div class="sidebar-content">
-            <h3>Menu Tambahan</h3>
-            <p style="font-size: 0.9rem; margin-top: 20px; color: #666;">
-                Fokus: Software Engineering<br>
-                Tech: Node.js, TypeScript
-            </p>
-            <button onclick="toggleSidebar()" style="margin-top: 30px; cursor:pointer;">Tutup ×</button>
-        </div>
-    </aside>
-
-    <main id="main-content">
-        <div id="content-area"></div>
-    </main>
-
-    <section class="full-width-image">
-        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072" alt="Tech Background">
-    </section>
-
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h4>MyPortfolio</h4>
-                <p style="color: #bdc3c7; font-size: 0.9rem;">
-                    Membangun solusi perangkat keras dan lunak yang efisien dengan fokus pada keamanan dan stabilitas.
-                </p>
-            </div>
-            <div class="footer-section">
-                <h4>Navigasi</h4>
-                <ul class="footer-links">
-                    <li><a href="#" onclick="showHome(event)">Home</a></li>
-                    <li><a href="#" onclick="showProjects(event)">Projects</a></li>
-                    <li><a href="#" onclick="showContact(event)">Contact</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Hubungi Saya</h4>
-                <ul class="footer-links">
-                    <li><a href="mailto:email@anda.com">Email Me</a></li>
-                    <li><a href="#">GitHub</a></li>
-                    <li><a href="#">LinkedIn</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2026 Nama Anda. Dibuat dengan TypeScript & Node.js.
-        </div>
-    </footer>
-
     <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById("sidebar");
-            const isOpen = sidebar.style.width === "250px";
-            sidebar.style.width = isOpen ? "0" : "250px";
+        // 1. GLOBAL STATE & SELECTORS
+        const navbar = document.querySelector('nav');
+        const hero = document.getElementById('hero');
+        const sidebar = document.getElementById('sidebar');
+        let isAutoScrolling = false;
+        let lastScrollY = window.scrollY;
+
+        // 2. INITIALIZATION: Force Summary Section on Load
+        // This prevents the browser from "remembering" your scroll position and jumping to About
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
         }
 
-        function renderHome() {
-            document.getElementById("content-area").innerHTML = `
-                <div class="home-container">
-                    <section class="intro-section">
-                        <h2>Tentang Saya</h2>
-                        <p>Saya berfokus pada pembangunan aplikasi yang stabil dan aman menggunakan teknologi modern seperti <strong>Node.js</strong> dan <strong>TypeScript</strong>.</p>
-                        <p style="margin-top: 15px;">Dedikasi saya adalah menciptakan arsitektur sistem yang efisien dan skalabel untuk kebutuhan industri masa depan.</p>
-                    </section>
-                    <section class="featured-section">
-                        <h3>Proyek Unggulan</h3>
-                        <div class="mini-project-card">
-                            <h4>E-Delivery System</h4>
-                            <p>Manajemen pengiriman dengan database relasional yang terstruktur.</p>
-                            <button class="text-link" onclick="showProjects(event)">Lihat Detail →</button>
-                        </div>
-                    </section>
-                </div>
-            `;
+        // Hard reset to top
+        window.scrollTo(0, 0);
+
+        // Lock snapping for the first 800ms to allow the page to settle
+        let allowSnapping = false;
+        setTimeout(() => {
+            allowSnapping = true;
+        }, 800);
+
+        // 3. SCROLL EVENT LISTENER
+        window.addEventListener('scroll', () => {
+            const currentY = window.scrollY;
+            const heroHeight = hero.offsetHeight;
+            const navHeight = 80;
+            const isScrollingUp = currentY < lastScrollY;
+
+            // --- NAVBAR VISIBILITY LOGIC ---
+            // Only show the dark/gradient navbar once we leave the Hero
+            if (currentY >= heroHeight - navHeight) {
+                navbar.classList.add('is-past-hero');
+            } else {
+                navbar.classList.remove('is-past-hero');
+            }
+
+            // --- DIRECTIONAL SNAP LOGIC ---
+            // We only execute this if snapping is allowed and we aren't already moving
+            if (allowSnapping && !isAutoScrolling) {
+
+                // SNAP DOWN: If user scrolls slightly down from the top
+                if (!isScrollingUp && currentY > 20 && currentY < (heroHeight / 2)) {
+                    executeAutoScroll(heroHeight - navHeight);
+                }
+
+                // SNAP UP: If user scrolls up while near the transition point
+                else if (isScrollingUp && currentY < (heroHeight - 50) && currentY > 50) {
+                    executeAutoScroll(0);
+                }
+            }
+
+            lastScrollY = currentY;
+        }, { passive: true });
+
+        // 4. CORE FUNCTIONS
+        function executeAutoScroll(targetY) {
+            if (isAutoScrolling) return;
+
+            isAutoScrolling = true;
+            window.scrollTo({
+                top: targetY,
+                behavior: 'smooth'
+            });
+
+            // Unlock after the smooth scroll duration (approx 1 second)
+            setTimeout(() => {
+                isAutoScrolling = false;
+            }, 1000);
         }
 
-        function showHome(e) { e.preventDefault(); renderHome(); }
-
-        function showProjects(event) {
-            event.preventDefault();
-            document.getElementById("content-area").innerHTML = `
-                <h2>Daftar Proyek</h2>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-                    <div class="mini-project-card" style="background: #f8f9fa; color: #333; border-left-color: #546474;"><h4>Auth Guard Pro</h4><p>Sistem JWT Authentication.</p></div>
-                    <div class="mini-project-card" style="background: #f8f9fa; color: #333; border-left-color: #546474;"><h4>Inventory App</h4><p>Stok manajemen barang.</p></div>
-                </div>
-            `;
+        function toggleSidebar(side) {
+            if (side === 'right') {
+                const rightSidebar = document.getElementById('sidebar-right');
+                rightSidebar.classList.toggle('open');
+            } else {
+                const leftSidebar = document.getElementById('sidebar');
+                leftSidebar.classList.toggle('open');
+            }
         }
 
-        function showContact(event) {
-            event.preventDefault();
-            document.getElementById("content-area").innerHTML = "<h2>Kontak</h2><p>Hubungi saya di: 25.01.ricky.03@uib.edu</p>";
+        window.addEventListener('DOMContentLoaded', () => {
+            // Check if we arrived here with the specific hash
+            if (window.location.hash === '#runScroll') {
+
+                // 1. Prevent the browser from jumping instantly to an ID
+                window.scrollTo(0, 0);
+
+                // 2. Execute your function
+                scrollToMainContent();
+
+                // 3. Clean the URL (Optional: removes #runScroll from the address bar)
+                history.replaceState(null, null, window.location.pathname);
+            }
+        });
+
+        function scrollToMainContent() {
+            const mainContent = document.querySelector('.main-content');
+            const navHeight = 80;
+
+            if (mainContent) {
+                const targetPosition = mainContent.offsetTop - navHeight;
+                executeAutoScroll(targetPosition);
+            }
         }
 
-        window.onload = renderHome;
+        // 5. ENTRANCE ANIMATIONS
+        window.addEventListener('load', () => {
+            // Trigger the Hero content (Summary) to fade/slide in
+            setTimeout(() => {
+                hero.classList.add('show-content');
+            }, 1000);
+        });
     </script>
 </body>
 
