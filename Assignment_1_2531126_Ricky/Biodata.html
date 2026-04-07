@@ -36,6 +36,7 @@
         nav {
             position: fixed;
             /* Keep it out of the document flow */
+            color: white;
             top: -100px;
             left: 0;
             width: 100%;
@@ -80,6 +81,11 @@
             margin-right: -2rem;
             cursor: pointer;
             /* Negates the nav padding to touch the edge */
+        }
+
+        .nav-inquiries-block:hover {
+            color: #AFDB0F;
+            transition: color 0.3s ease;
         }
 
         .nav-divider {
@@ -469,7 +475,7 @@
 
     <div id="sidebar">
         <div class="sidebar-header">
-            <span class="close-sidebar" onclicky="toggleSidebar()">Close</span>
+            <span class="close-sidebar" onclick="toggleSidebar()">Close</span>
         </div>
 
         <div class="sidebar-section active"> <a href="javascript:void(0)">
@@ -491,12 +497,7 @@
                 <div class="section-divider"></div>
             </a>
         </div>
-        <div class="sidebar-section">
-            <a href="blogs.html" onclick="toggleSidebar()">
-                <h3>My Blogs</h3>
-                <div class="section-divider"></div>
-            </a>
-        </div>
+        
         <div class="sidebar-section">
             <a href="wireframe.html" onclick="toggleSidebar()">
                 <h3>Wireframe Details</h3>
@@ -526,8 +527,8 @@
         <div class="nav-inquiries-block" onclick="toggleSidebar('right')">
             <div class="nav-divider"></div>
             <div class="nav-inquiries-text">
-                <span style="color: white;">Further</span>
-                <span style="color: white;">Inquiries</span>
+                <span>Further</span>
+                <span>Inquiries</span>
             </div>
         </div>
     </nav>

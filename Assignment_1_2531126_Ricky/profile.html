@@ -59,6 +59,11 @@
             /* Negates the nav padding to touch the edge */
         }
 
+        .nav-inquiries-block:hover {
+            color: #AFDB0F;
+            transition: color 0.3s ease;
+        }
+
         .nav-divider {
             width: 1.5px;
             height: 40px;
@@ -180,41 +185,31 @@
             /* Slide in */
         }
 
-        /* Contact Specific Styling */
-        .contact-label {
-            color: white;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 8px;
-        }
-
-        .contact-divider {
-            width: 100%;
-            height: 2px;
-            background: white;
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-list {
+        /* --- CONTACTS LIST STYLING --- */
+        .contact-links {
             list-style: none;
+            margin-top: 20px;
         }
 
-        .contact-list li {
-            margin-bottom: 1rem;
+        .contact-links li {
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
         }
 
-        .contact-list a {
+        .contact-links a {
             color: white;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            display: block;
         }
 
-        .contact-list a:hover {
+        .contact-links a:hover {
             color: #AFDB0F;
-            /* Match your highlight color */
+            transform: translateX(-5px);
+            /* Slide slightly left on hover */
         }
 
         .section-divider {
@@ -471,12 +466,7 @@
             </a>
         </div>
 
-        <div class="sidebar-section">
-            <a href="blogs.html" onclick="toggleSidebar()">
-                <h3>My Blogs</h3>
-                <div class="section-divider"></div>
-            </a>
-        </div>
+        
 
         <div class="sidebar-section">
             <a href="wireframe.html" onclick="toggleSidebar()">
@@ -492,15 +482,13 @@
         </div>
 
         <div class="sidebar-content">
-            <div class="contact-section">
-                <h3 class="contact-label">Contacts</h3>
-                <div class="contact-divider"></div>
-                <ul class="contact-list">
-                    <li><a href="mailto:your-email@example.com">Email</a></li>
-                    <li><a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a></li>
-                    <li><a href="https://github.com/yourusername" target="_blank">GitHub</a></li>
-                </ul>
-            </div>
+            <h3 style="color: white;">Contacts</h3>
+            <div class="section-divider"></div>
+            <ul class="contact-links">
+                <li><a href="mailto:your@email.com">Email</a></li>
+                <li><a href="#">LinkedIn</a></li>
+                <li><a href="#">GitHub</a></li>
+            </ul>
         </div>
     </div>
 
