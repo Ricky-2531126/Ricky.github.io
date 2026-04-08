@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Guardians - Pesona Pohon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="main-body">
+
+    <header class="top-header">
+        <h1>Paru-Paru Dunia</h1>
+        <p>Mengenal lebih dekat keajaiban pepohonan di sekitar kita.</p>
+    </header>
+
+    <nav class="navigation">
+        <span id="live-clock">00:00:00</span>
+        <button id="theme-toggle">Ganti Mode</button>
+    </nav>
+
+    <main class="content-wrapper">
+        <article class="main-article">
+            <h2 id="dynamic-title">Manfaat Pohon</h2>
+            <p>Pohon menyediakan oksigen, menyerap karbon dioksida, dan menjadi rumah bagi jutaan spesies.</p>
+            
+            <img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?q=80&w=800" alt="Hutan Hijau" id="forest-img">
+        </article>
+
+        <section class="video-section">
+            <h3>Visualisasi Alam</h3>
+            <video id="nature-video" controls autoplay loop muted>
+                <source src="https://cdn.pixabay.com/video/2026/02/17/335040_large.mp4" type="video/mp4">
+                Browser tidak mendukung tag video.
+            </video>
+        </section>
+
+        <aside class="interaction-card">
+            <h3>Kontribusi Anda</h3>
+            <p>Berapa banyak pohon yang ingin Anda tanam?</p>
+            <input type="number" id="tree-input" placeholder="0">
+            <button id="calc-btn">Hitung Dampak</button>
+            <p id="result-text"></p>
+        </aside>
+    </main>
+
+    <footer class="site-footer">
+        <p>Project Green &copy; 2026</p>
+        <span id="user-status">Status: Aktif</span>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

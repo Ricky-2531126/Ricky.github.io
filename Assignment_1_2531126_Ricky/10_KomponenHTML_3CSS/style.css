@@ -1,37 +1,83 @@
-* {
-    color: #DCD78B;
-}
-
+/* 1. Body */
 body {
-    background-color: #444E17;
-    display: flex;
-    flex-direction: column;
-}
-
-h1 {
-    display: flex;
-    color: red;
-    background-color: rgb(21, 113, 113);
-    justify-content: center;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgb(21, 113, 113);
-}
-
-p {
-    align-self: flex-start;
-    margin: 0 0 0 60px;
-    padding: 12px;
-    border: 3px solid black;
-}
-
-blockquote {
     margin: 0;
-    padding: 12px;
-    border: 3px solid black;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: #f1f8e9;
+    transition: background 0.4s ease;
 }
 
+/* 2. Header */
+.top-header {
+    background-color: #2e7d32;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* 3. Navigation */
+.navigation {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    background: #c5e1a5;
+}
+
+/* 4. Heading 1 */
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+/* 5. Heading 2 */
+h2 {
+    color: #1b5e20;
+    border-left: 5px solid #4caf50;
+    padding-left: 15px;
+}
+
+/* 6. Main Container */
+.content-wrapper {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* 7. Image */
+img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    margin-top: 15px;
+}
+
+/* 8. Video */
+video {
+    width: 100%;
+    border: 5px solid #a5d6a7;
+    border-radius: 12px;
+}
+
+/* 9. Button */
+button {
+    padding: 10px 20px;
+    background-color: #388e3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* 10. Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #1b5e20;
+    color: #ffffff;
+}
+
+/* --- Dark Mode Helper --- */
+body.dark-mode {
+    background-color: #1b261b;
+    color: #e8f5e9;
+}
